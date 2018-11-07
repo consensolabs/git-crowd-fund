@@ -16,8 +16,38 @@ Light weight client to store and retrieve token details of the contributors.
 Additional enhancement
 We are planning to build a centralized hosting service like GitHub and integrate with the blockchain ledger to manage automation of crowd funding. But, to build a completely decentralized application, we can also create the hosting service using distributed file sharing protocol such as InterPlanetary File System (IPFS).
 
+
 ## Quick start
 
+There are 2 dependencies in the dApp setup.
+* A GitLab server
+* A PostgreSQL
+
+### GitLab server setup
+
+* Setup the GitLab server that offers API.
+  
+    * Install the GitLab community edition -- https://about.gitlab.com/install/
+    
+    * Alternatively you can setup up the server using the docker image -- https://hub.docker.com/r/gitlab/gitlab-ce/
+    
+* Configure the server.
+    
+    * Once the server is up, create a new user or use the default root user to login.
+    
+    * Create a private token for the user from the settings panel.
+    
+    * Replace the server details and private token in `./api/gitlab_lib/middleware.py`with the created server and private token.
+    
+    * Create some sample repos in the server.
+    
+### PostgreSQL setup
+
+* [Install and configure](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-postgresql-on-ubuntu-16-04) a latest version of PostresSQL database.
+
+* Create a user and a database. Update the username, password and database in `.api/config.py`.
+
+* Migrate the database schema to the created Postgres DB. 
 
 ### deploy smart contract
 
